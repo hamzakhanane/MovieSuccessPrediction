@@ -9,6 +9,26 @@ The goal of the project was to accurately categorize a movie into three categori
  * sklearn
  * matlab pyplot
  
+ ### Code Snipet for adding a feature to train our model
+ 
+ ````
+  ##adding an extra column to the output file
+        for row in csv.reader(csvinput):
+            if row[0] == 'color':
+                writer.writerow(row+["Category"])
+            else:
+                ##intervals for flop,hit and blockbuster
+                ##tried different experiments by changing our interval, this was the one which had the best accuracy rate
+                float_item = float(row[28])
+                if float_item < 5.5:
+                    writer.writerow(row + ['Flop']) ##flop
+                elif 5.5 < float_item < 7.5:
+                    writer.writerow(row + ['Hit']) ##hit
+                else:
+                    writer.writerow(row + ['BlockBuster']) ##blockbuter
+````
+
+ 
 
 
 
